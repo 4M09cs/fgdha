@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaxbBet Battle</title>
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    :root {
+      --accent-color: #000000;
+      --base-color: white;
+      --text-color: #25be17;
+    }
+
+    .bilder {
+      border: solid;
+      width: 600px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem auto;
+      gap: 50px;
+      border-radius: 1cm;
+      box-shadow: var(--text-color) 1px 1px 5px;
+    }
+
+    .start {
+      max-width: 600px;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .start-button {
+      padding: 10px;
+      border-radius: 1cm;
+      border: 2px solid var(--text-color);
+      background-color: rgba(0, 0, 0, 0.3);
+      color: var(--text-color);
+      transition: transform 0.2s ease;
+    }
+
+    .start-button:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header class="headbar">
+    <nav>
+      <h1><a href="../home/home.html">maxbet</a></h1>
+    </nav>
+    <p id="guthaben" class="guthaben" onclick="window.location.href = '../guthaben/guthaben.html'">Lädt...</p>
+    <p id="Logout" class="Logout" hidden onclick="logout()">Logout</p>
+  </header>
+
+  <main>
+    <div class="bilder">
+      <img width="100" id="player1">
+      <img width="100" id="player2">
+      <img width="100" id="player3">
+      <img width="100" id="player4">
+    </div>
+
+    <div id="start-container" class="start">
+      <button class="start-button" id="start">Start</button>
+      <p id="moneyWin"></p>
+      <p id="error"></p>
+    </div>
+  </main>
+
+  <script src="../case/case.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

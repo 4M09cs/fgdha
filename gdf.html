@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxBet Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Login</h1>
+        <p id="error"></p>
+        <form>
+            <div>
+                <label id="usernameInput" for="username-input"><img src="pics/person_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png" alt=""></label>
+                <input id="username-input" type="text" placeholder="Benutzername">
+            </div>
+            <div>
+                <label id="passwordInput" for="password-input"><img src="pics/lock_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png" alt=""></label>
+                <input id="password-input" type="password" placeholder="Passwort">
+            </div>
+        </form>
+        <p>Sie haben noch keinen Account? Clicken Sie <a class="signup" href="/casino/signup/signup.html">hier</a></p>
+        <button onclick="check()" class="button">Login</button>
+        
+    </div>
+    
+</body>
+<script src="login.js"></script>
+</html>

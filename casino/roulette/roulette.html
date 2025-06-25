@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxbBet Slots</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        :root {
+          --accent-color: #000000;
+          --base-color: white;
+          --text-color: #25be17;
+        }
+        .rouletteDiv{
+            border: solid;
+            width: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 3rem auto;
+            border-radius: 1cm;
+            box-shadow: var(--text-color) 1px 1px 5px;
+        }
+        .rouletteBild{
+            margin: 0.5cm;
+            border-radius: 1cm;
+            margin-bottom: 1.5cm;
+        }
+        .buttonDiv{
+            display: flex;
+            flex-direction: row;
+        }
+        .rotButton,.schwarzButton,.grünButton{
+            min-width: 140px;
+            padding: 0.6cm;
+            border-radius: 1cm;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            color: white;
+            font-weight: 900;
+            transition: transform 0.2s ease;
+        }
+        .rotButton:hover,.schwarzButton:hover,.grünButton:hover{
+            transform: scale(1.05);
+        }
+
+        .rotButton{
+            background-color: darkred;
+            border: solid;
+            box-shadow: red 1px 1px 5px;
+        }
+        .schwarzButton{
+            background-color: black;
+            border: solid;
+            box-shadow: black 1px 1px 5px;
+        }
+        .grünButton{
+            background-color: green;
+            border: solid;
+            box-shadow: green 1px 1px 5px;
+        }
+        .bet{
+            margin: 0.5cm;
+            border-radius: 1cm;
+            border: solid var(--text-color);
+            box-shadow: var(--text-color) 1px 1px 5px;
+            background-color: rgba(255, 255, 255, 0.05);
+            height: 26px;
+            color: var(--text-color);
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header class="headbar">
+        <nav>  
+            <h1><a href="../home/home.html">maxbet</a></h1>
+            <p id="guthaben" class="guthaben" onclick="window.location.href = '../guthaben/guthaben.html'">Lädt...</p>
+            <p hidden id="Logout" class="Logout" onclick="logout()">Logout</p>
+        </nav>
+
+    </header>
+    <main>
+        <div class="rouletteDiv">
+            <img src="../roulette/pics/default.png" id="rouletteBild" class="rouletteBild">
+            <div class="buttondiv">
+                <button onclick="start(this)" id="rotButton" class="rotButton">Rot x2</button>
+                <button onclick="start(this)" id="grünButton" class="grünButton">Grün x37</button>
+                <button onclick="start(this)" id="schwarzButton" class="schwarzButton">Schwarz x2</button>
+                
+            </div>
+            <input type="number" class="bet" id="bet">
+            <p id="error" class="error"></p>
+        </div>
+    </main>
+    
+    <script src="../main.js"></script>
+    <script src="../roulette/roulette.js"></script>
+</body>
+</html>

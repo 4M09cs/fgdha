@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxbBet Home</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        .picDiv{
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .picDiv2{
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .gamePic{
+            border-radius: 1cm;
+            box-shadow: black 1px 1px 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="headbar">
+        <nav>  
+            <h1><a href="home.html">maxbet</a></h1>
+            <p id="guthaben" class="guthaben" onclick="window.location.href = '../guthaben/guthaben.html'">Lädt...</p>
+            <p hidden id="Logout" class="Logout" onclick="logout()">Logout</p>
+        </nav>
+
+    </header>
+    <main>
+        
+        <div class="picDiv">
+            <a href="../mines/mines.html"><img class="gamePic" src="../pics/thumbnail.webp" height="350px"></a>
+            <a href="../crash/crash.html"><img class="gamePic" src="../pics/popular-crash-gambling-1024x611-1.jpg" height="350px"></a>
+            <a href="../case/case.html"><img class="gamePic" src="../pics/case_battle.jpg" height="350px"></a>
+        </div>
+        <div class="picDiv2">
+            <a href="../roulette/roulette.html"><img class="gamePic" src="../pics/Roulette_header_2750x1600_jsg1ap.avif" height="350px"></a>
+        </div>
+        
+    </main>
+    
+    <script src="../main.js"></script>
+</body>
+</html>

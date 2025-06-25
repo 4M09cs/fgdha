@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxbBet Mines</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        :root {
+            --accent-color: #000000;
+            --base-color: white;
+            --text-color: #25be17;
+        }
+        body{
+            overflow: visible;
+            font-weight: 700;
+        }
+        .gallery-box {
+            max-width: 830px;
+            margin: 3rem auto 0 auto;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .grid-item {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        .game-box {
+            width: 400px;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 6cm;
+            left: 3cm;
+        }
+
+        .game-item {
+            display: flex;
+            justify-content: center;
+        }
+        .difficulty{
+            margin: 20px;
+        }
+        .multiplier{
+            margin: 20px;
+        }
+        .bet{
+            margin: 20px;
+        }
+        .betButton{
+            padding: 10px;
+            border-radius: 1cm;
+            border: solid var(--text-color) 2px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
+            transition: ease 0.2s;
+            margin: 20px;
+            
+
+        }
+        .betButton:hover{
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        .play-again {
+            max-width: 600px;
+            margin: 3rem auto 0 auto;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .diff{
+            padding: 10px;
+            border-radius: 1cm;
+            border: solid var(--text-color) 2px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
+            transition: ease 0.2s;
+            margin: 20px;
+            
+
+        }
+        .diff:hover{
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        .diff:focus{
+            outline: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgba(37, 190, 23, 0.5);
+        }
+        .liveWin{
+            display: flex;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75cm;
+        }
+        .b {
+            padding: 10px 20px;
+            border-radius: 1cm;
+            border: 2px solid var(--text-color);
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.2s ease;
+            width: 150px;
+        }
+
+        .b:focus {
+            outline: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgba(37, 190, 23, 0.5);
+        }
+        .cashout{
+            padding: 10px;
+            border-radius: 1cm;
+            border: solid var(--text-color) 2px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
+            transition: ease 0.2s;
+        }
+        .cashout:hover{
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        .cashoutDiv{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .play-again-button{
+            padding: 10px;
+            border-radius: 1cm;
+            border: solid var(--text-color) 2px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
+            transition: ease 0.2s;
+        }
+        .play-again-button:hover{
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        
+            
+    
+
+    </style>
+</head>
+<body>
+    <header class="headbar">
+        <nav>
+            <h1><a href="../home/home.html">maxbet</a></h1>
+        </nav>
+        <p id="guthaben" class="guthaben" onclick="window.location.href = '../guthaben/guthaben.html'">Lädt...</p>
+        <p hidden id="Logout" class="Logout" onclick="logout()">Logout</p>
+    </header>
+
+    <main>
+        <div hidden id="play-again" class="play-again">
+            <h1 id="losthead">Du hast verloren!</h1>
+            <p>Nochmal spielen?</p>
+            <p id="moneyLost">Geld gewonnen: </p>
+            <button class="play-again-button" onclick="playAgain()">Erneut Spielen</button>
+        </div>
+        <div class="cashoutDiv ">
+            <button hidden class="cashout"  id="cashout" onclick="cashout()" >cashout</button>
+        </div>
+        
+
+        <div id="game-box" class="game-box">
+            <h1 class="game-item">MINES</h1>
+            <div class="game-inhalt">
+                <div class="difficulty">
+                    <label for="difficulty">Schwierigkeit: </label>
+                    <select class="diff" id="difficulty" onchange="multiplierChange()">
+                        <option>Einfach</option>
+                        <option>Mittel</option>
+                        <option>Schwer</option>
+                    </select>
+                </div>
+                <div class="multiplier">
+                    <label for="multiplier">Multiplizierer: </label>
+                    <p id="multiplier">1.25x</p>
+                </div>
+                
+                <div class="bet">
+                    <label for="bet">Einsatz: </label>
+                    <input class="b" id="bet" type="number">
+                </div>
+
+                <div>
+                    <p id="mindesteinsatz"></p>
+                </div>
+                
+                <button onclick="checkDiffBet()" class="betButton">Setzen</button>
+            </div>
+        </div>
+
+
+        <div hidden id="gallery-box" class="gallery-box">
+            <p class="liveWin" id="liveWin">Win: 0€</p>
+            <div class="grid-container">
+                <div class="grid-item"><img onclick="game(this)" id="pic1" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic2" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic3" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic4" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic5" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic6" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic7" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic8" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic9" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic10" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic11" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic12" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic13" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic14" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic15" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic16" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic17" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic18" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic19" alt=""></div>
+                <div class="grid-item"><img onclick="game(this)" id="pic20" alt=""></div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="../main.js"></script>
+    <script src="../mines/mines.js"></script>
+</body>
+</html>

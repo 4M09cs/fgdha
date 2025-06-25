@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxBet Guthaben</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        :root {
+            --accent-color: #000000;
+            --base-color: white;
+            --text-color: #25be17;
+            --kp-color: #1d1d1d;
+        }
+
+        .GuthabenDiv{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+            justify-content: center;
+            text-shadow: var(--text-color) 1px 1px 5px;
+        }
+        .fundInput{
+            border-radius: 1cm;
+            padding: 0.4cm;
+            border: solid 2px;
+            border-color: var(--text-color);
+            background-color: var(--kp-color);
+            box-shadow: var(--text-color) 1px 1px 5px;
+            color: var(--text-color);
+        }
+        .fundInput::placeholder{
+            color: var(--text-color);
+            font-weight: 700;
+        }
+        .fundInput:focus{
+            outline: none;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+    
+
+        
+        
+    </style>
+</head>
+<body>
+    <header class="headbar">
+        <h1><a href="../home/home.html">maxbet</a></h1>
+        <p hidden id="Logout" class="Logout" onclick="logout()">Logout</p>
+        
+    </header>
+    <main>
+        <div class="GuthabenDiv">
+            <h1 id="guthaben">Lädt...</h1>
+            <input class="fundInput" type="number" id="add" placeholder="Hinzufügen">
+        </div>    
+        
+        
+    </main>
+    
+    <script src="../main.js"></script>
+    <script src="../guthaben/guthaben.js"></script>
+</body>
+</html>

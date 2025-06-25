@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaxbBet Crash</title>
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    :root {
+      --accent-color: #000000;
+      --base-color: white;
+      --text-color: #25be17;
+    }
+
+    .multiplier {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 600px;
+      height: 200px;
+      margin: 3rem auto;
+      padding: 1.5rem;
+      font-size: 80px;
+      font-weight: 700;
+      border: solid;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: var(--text-color) 1px 1px 5px;
+    }
+
+    .button-base {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 3rem auto;
+      padding: 10px;
+      font-weight: 700;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: solid var(--text-color);
+      color: var(--text-color);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .button-base:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+
+    .bet-button {
+      width: 80px;
+      height: 40px;
+    }
+
+    .aussteigen-button {
+      width: 100px;
+      height: 40px;
+    }
+
+    .bet-input {
+      width: 120px;
+      height: 40px;
+    }
+
+    .bet-input:hover {
+      transform: scale(1.05);
+    }
+
+    .bet-input:focus {
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.5);
+      transform: scale(1.03);
+      box-shadow: var(--text-color) 1px 1px 5px;
+    }
+
+    .winIndicator, .unsufficiantFund {
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .unsufficiantFund {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <header class="headbar">
+    <nav>
+        <h1><a href="../home/home.html">maxbet</a></h1>
+        <p id="guthaben" class="guthaben" onclick="window.location.href = '../guthaben/guthaben.html'">Lädt...</p>
+        <p hidden id="Logout" class="Logout" onclick="logout()">Logout</p>
+    </nav>
+  </header>
+
+  <main>
+    
+
+    <div id="multiplierDiv" class="multiplier">
+      <p id="multiplier">0.00x</p>
+    </div>
+
+    <input class="bet-input button-base" type="number" id="bet">
+    <button id="bet-button" class="bet-button button-base" onclick="limitSetter(this)">BET</button>
+    <button id="aussteigen" class="aussteigen-button button-base" onclick="betStopper(this)">AUSSTEIGEN</button>
+
+    <p id="win_indicator" class="winIndicator"></p>
+    <p hidden id="unsufficiantFund" class="unsufficiantFund"></p>
+  </main>
+
+  <script src="../main.js"></script>
+  <script src="../crash/crash.js"></script>
+</body>
+</html>
